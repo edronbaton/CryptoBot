@@ -1,0 +1,28 @@
+@import 'libs/bootstrap-reboot.min'
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap')
+
+@import 'base/variables'
+@import 'base/title'
+@import 'base/mixins'
+@import 'base/buttons'
+
+
+* 
+    font-family: "Inter", sans-serif
+    margin: 0
+    padding: 0
+
+
+.link
+    &__main
+        font-size: 18px
+        color: $mainColor
+        text-decoration: none
+        transition: all 0.2s
+        &:hover
+            text-decoration: underline
+            
+.container
+    width: 1200px
+    margin: 0 auto
+
