@@ -1,0 +1,79 @@
+
+.promo
+    padding: 40px 0px 300px 0px
+
+    &__wrapper
+        position: relative
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+    &__navigation 
+        display: block
+        margin-bottom: 0px
+        nav
+            margin-left: 350px
+            list-style: none
+            display: flex
+            padding: 0px
+            li
+                cursor: pointer
+                margin-left: 32px
+                &:first-child
+                    margin-left: 0px
+    &__theme
+        margin-left: 170px
+
+    &__other
+        margin-top: 200px
+
+        &-title span
+            line-height: 110%
+            color: $mainColor
+
+        &-descr
+            margin-top: 25px
+            line-height: 120%
+
+        &-btn
+            width: 195px
+            margin-top: 32px
+
+        &-populars
+            margin-top: 60px
+            display: flex
+
+            &__bots
+                margin-top: 20px
+    
+    &__item 
+        position: relative
+        border: 6px solid white
+        border-radius: 100%
+    
+        @for $i from 1 through 5 
+            &:nth-child(#{$i}) 
+                right: 30px * ($i - 1)
+
+    &__phone
+        position: absolute
+        top: 167px
+        right: 80px
+            
+        
+    
+    
+
+            
+    
+
+            
+        
+        
+
+            
+        
+        
+
+    
+    
