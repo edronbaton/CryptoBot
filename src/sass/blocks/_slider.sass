@@ -1,0 +1,44 @@
+.slider
+    padding: 196px 0px
+    background-color: #232328
+    .container
+        position: relative
+    &__navigation
+        position: absolute
+        top: 20px
+        right: 1px
+        color: white
+        font-size: 14px
+        &-lines 
+            height: 408px
+            display: flex
+            flex-direction: column
+            justify-content: space-around
+            align-items: center
+            
+            hr
+                width: 4px
+                height: 110px
+                border: none
+                border-radius: 4px
+                background-color: rgba(255, 255, 255, 0.24)
+            .active
+                display: block
+                background-color: $mainColor
+    &__slide
+        display: flex
+        &-text
+            margin: 60px 0px 0px 120px
+        &-picture img
+            border-radius: 40px
+        &-title
+            color: white
+            line-height: 110%
+            span
+                color: $mainColor
+        &-subtitle
+            margin-top: 32px
+            color: white
+        &-btn
+            margin-top: 32px
+            
