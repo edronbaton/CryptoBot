@@ -29,7 +29,10 @@ window.addEventListener("DOMContentLoaded", function() {
             blockColor: data.getPropertyValue('--blocksDarkColor'),
             otherTextColor: data.getPropertyValue('--otherTextOtherDark'),
             receivePhone: "../img/phone/dark/received.png",
-            createAppButton: "../img/other/create_app_dark.png"
+            createAppButton: "../img/other/create_app_dark.png",
+            exchangeArrows: "../img/exchange/arrows_dark.png",
+            circleBgColor: "white",
+            circleTextColor: "black"
         },
 
         "light": {
@@ -39,7 +42,10 @@ window.addEventListener("DOMContentLoaded", function() {
             blockColor: data.getPropertyValue('--blocksLightColor'),
             otherTextColor: data.getPropertyValue('--otherTextOtherLight'),
             receivePhone: "../img/phone/light/received.png",
-            createAppButton: "../img/other/create_app_light.png"
+            createAppButton: "../img/other/create_app_light.png",
+            exchangeArrows: "../img/exchange/arrows_light.png",
+            circleBgColor: "black",
+            circleTextColor: "white"
         }
     }
 
@@ -70,7 +76,9 @@ window.addEventListener("DOMContentLoaded", function() {
     function setTheme(mode_) {
         document.querySelector(".promo__phone-img").src = styles[mode_].mainPhone
         document.body.style.cssText = `transition: all 0.3s; background-color: ${styles[mode_].bgColor}`
+
         document.querySelector(".features__create-app_button-img").src = styles[mode_].createAppButton
+        document.querySelector(".features__exchange_arrows_icon").src = styles[mode_].exchangeArrows
         document.querySelector(".features__send-phone-img").src = styles[mode_].receivePhone
 
 
@@ -85,8 +93,11 @@ window.addEventListener("DOMContentLoaded", function() {
         other_text.forEach((item) => {
             item.style.cssText = `transition: all 0.3s; color: ${styles[mode_].otherTextColor}`
         })
+
+        document.querySelectorAll(".quick_start-number").forEach((item) => {
+            item.style.cssText = `color: ${styles[mode_].circleTextColor}; background-color: ${styles[mode_].circleBgColor}`
+        })
         
-       
     }
 
 
@@ -115,7 +126,6 @@ window.addEventListener("DOMContentLoaded", function() {
         setSlide()
     }, 2300);
 
-    let isScrolling = false;
 
     function setSlide(animate = true) {
         sliderCurrent.textContent = `0${settings.defaultActiveSlide+1}`
