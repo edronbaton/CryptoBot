@@ -7,7 +7,13 @@ window.addEventListener("DOMContentLoaded", function() {
 
     let titles = this.document.querySelectorAll(".title");
 
+    let blocks = this.document.querySelectorAll(".block");
+    
+    let other_text = this.document.querySelectorAll(".other_text");
+    
     let icon = document.createElement("img");
+
+    
 
     
     icon.classList.add("promo__theme-icon");
@@ -19,13 +25,21 @@ window.addEventListener("DOMContentLoaded", function() {
         "dark": {
             bgColor: data.getPropertyValue('--darkModeColor'),
             titleColor: "#F7F9FB",
-            mainPhone: "../img/phone/dark/main.png"
+            mainPhone: "../img/phone/dark/main.png",
+            blockColor: data.getPropertyValue('--blocksDarkColor'),
+            otherTextColor: data.getPropertyValue('--otherTextOtherDark'),
+            receivePhone: "../img/phone/dark/received.png",
+            createAppButton: "../img/other/create_app_dark.png"
         },
 
         "light": {
-            bgColor: data.getPropertyValue('--blocksLightColor'),
+            bgColor: data.getPropertyValue('--lightModeColor'),
             titleColor: "#18181D",
-            mainPhone: "../img/phone/light/main.png"
+            mainPhone: "../img/phone/light/main.png",
+            blockColor: data.getPropertyValue('--blocksLightColor'),
+            otherTextColor: data.getPropertyValue('--otherTextOtherLight'),
+            receivePhone: "../img/phone/light/received.png",
+            createAppButton: "../img/other/create_app_light.png"
         }
     }
 
@@ -56,10 +70,23 @@ window.addEventListener("DOMContentLoaded", function() {
     function setTheme(mode_) {
         document.querySelector(".promo__phone-img").src = styles[mode_].mainPhone
         document.body.style.cssText = `transition: all 0.3s; background-color: ${styles[mode_].bgColor}`
+        document.querySelector(".features__create-app_button-img").src = styles[mode_].createAppButton
+        document.querySelector(".features__send-phone-img").src = styles[mode_].receivePhone
+
 
         titles.forEach((item) => {
             item.style.cssText = `transition: all 0.3s; color: ${styles[mode_].titleColor}`
-        })        
+        })     
+        
+        blocks.forEach((item) => {
+            item.style.cssText = `transition: all 0.3s; background-color: ${styles[mode_].blockColor}`
+        })
+
+        other_text.forEach((item) => {
+            item.style.cssText = `transition: all 0.3s; color: ${styles[mode_].otherTextColor}`
+        })
+        
+       
     }
 
 
@@ -75,14 +102,24 @@ window.addEventListener("DOMContentLoaded", function() {
         defaultActiveSlide: 0,
         totalSlides: slides.length
     };
-
     
+    
+    setInterval(() => {
+        if (settings.defaultActiveSlide+1 >= settings.totalSlides) {
+            settings.defaultActiveSlide = 0;
+        } else {
+            settings.defaultActiveSlide += 1;
+        }
+        
+        
+        setSlide()
+    }, 2300);
 
     let isScrolling = false;
 
     function setSlide(animate = true) {
         sliderCurrent.textContent = `0${settings.defaultActiveSlide+1}`
-        sliderLine.forEach((item, index) => {
+        sliderLine.forEach((item) => {
             item.classList.remove("active");
     });
 
@@ -93,7 +130,7 @@ window.addEventListener("DOMContentLoaded", function() {
             item.style.display = "flex";
         if (animate) {
             item.style.opacity = 0; // Начальная прозрачность 0
-            item.style.transition = "opacity 0.5s ease-in-out"; // Плавная анимация
+            item.style.transition = "opacity 1.2s ease-in-out"; // Плавная анимация
             setTimeout(() => {
             item.style.opacity = 1; // Конечная прозрачность 1
             }, 100); // Добавляем небольшую задержку для запуска анимации
@@ -108,24 +145,24 @@ window.addEventListener("DOMContentLoaded", function() {
 
     setSlide(true);
     
-    slides.forEach((item) => {
-        item.addEventListener('wheel', function() {
-            if (isScrolling) return;
+    // slides.forEach((item) => {
+    //     item.addEventListener('wheel', function() {
+    //         if (isScrolling) return;
         
-            if (settings.defaultActiveSlide >= slides.length-1) {
-                settings.defaultActiveSlide = -1;
-            } else {
-                isScrolling = true;
-                settings.defaultActiveSlide += 1;
-                setSlide(true); // Вызываем setSlide() без анимации
+    //         if (settings.defaultActiveSlide >= slides.length-1) {
+    //             settings.defaultActiveSlide = -1;
+    //         } else {
+    //             isScrolling = true;
+    //             settings.defaultActiveSlide += 1;
+    //             setSlide(true); // Вызываем setSlide() без анимации
         
-                setTimeout(function() {
-                    setSlide(true); // Вызываем setSlide() с анимацией через 0.5 секунды
-                    isScrolling = false;
-                }, 1000);
-            }
-            });
-    })
+    //             setTimeout(function() {
+    //                 setSlide(true); // Вызываем setSlide() с анимацией через 0.5 секунды
+    //                 isScrolling = false;
+    //             }, 1000);
+    //         }
+    //         });
+    // })
     
     
 

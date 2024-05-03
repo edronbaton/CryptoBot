@@ -1,0 +1,140 @@
+.features
+    padding: 144px 0px
+
+    &__wrapper
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        gap: 20px
+        width: 100%
+        
+        .block
+            padding: 42px 56px
+            border-radius: 40px
+        
+    &__methods
+        background-color: var(--blocksLightColor)
+        grid-column: 1 / -1
+        
+    
+        &-subtitle
+            margin-top: 20px
+            span
+                font-weight: 500
+                color: $mainColor
+        &-wrapper
+            margin-top: 42px
+            display: flex
+            justify-content: space-between
+            &_crypto
+                display: flex
+                flex-direction: column
+                align-items: center
+
+        &-description
+            color: rgba(17, 17, 17, 0.40)
+            margin-top: 8px
+            
+    &__create-app
+        background-color: $mainColor
+        position: relative
+        width: 488px
+
+
+        &_button img
+            display: block
+            margin: 37px auto 0 auto
+        &_title
+            margin-top: 69px
+            color: var(--darkModeColor)
+        &_subtitle
+            color: var(--otherTextOtherLight)
+            font-weight: 400
+            span
+                color: $mainColor
+                font-weight: 500
+        &_coursor
+            position: absolute
+            top: 120px
+            left: 64%
+
+    &__payment_statistics
+        width: 692px
+        grid-column: 2 / 1
+        grid-row: 2 / 4
+        
+    
+        &-photo img
+            border-radius: 40px
+        &-title
+            margin-top: 24px
+            color: var(--darkModeColor)
+        &-subtitle
+            margin-top: 20px
+            color: var(--otherTextOtherLight)
+            span
+                font-weight: 500
+                color: $mainColor
+
+
+
+    &__exchange
+
+        width: 488px
+        min-height: 366px
+        position: relative
+        &__wrapper
+            display: flex
+            justify-content: space-around
+            align-items: center
+        &_crypto
+            display: flex
+            position: absolute
+            left: 98px
+            img
+                position: relative
+                @for $i from 1 through 5 
+                    &:nth-child(#{$i}) 
+                        right: 80px * ($i - 1)
+        &_arrows
+            position: absolute
+            left: 257px
+        &_dollar
+            margin-left: 185px
+            
+        &-title
+            margin-top: 20px
+
+        &-subtitle
+            margin-top: 20px
+            span
+                font-weight: 500
+                color: $mainColor
+    
+    &__send.block
+        padding-top: 0px
+        
+    &__send
+        width: 692px
+        height: 510px
+
+        &-title
+            margin-top: 27px
+        &-subtitle
+            span
+                color: $mainColor
+    
+    &__anonymous
+        height: 510px
+        &-photo img
+            border-radius: 40px
+        &-title, &-subtitle
+            margin-top: 20px
+            span
+                font-weight: 500
+                color: $mainColor
+    
+    
+    
+    
+        
+        
