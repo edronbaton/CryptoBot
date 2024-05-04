@@ -32,7 +32,7 @@ window.addEventListener("DOMContentLoaded", function() {
             createAppButton: "../img/other/create_app_dark.png",
             exchangeArrows: "../img/exchange/arrows_dark.png",
             circleBgColor: "white",
-            circleTextColor: "black"
+            circleTextColor: "black",
         },
 
         "light": {
@@ -80,6 +80,7 @@ window.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".features__create-app_button-img").src = styles[mode_].createAppButton
         document.querySelector(".features__exchange_arrows_icon").src = styles[mode_].exchangeArrows
         document.querySelector(".features__send-phone-img").src = styles[mode_].receivePhone
+        
 
 
         titles.forEach((item) => {
@@ -97,6 +98,8 @@ window.addEventListener("DOMContentLoaded", function() {
         document.querySelectorAll(".quick_start-number").forEach((item) => {
             item.style.cssText = `color: ${styles[mode_].circleTextColor}; background-color: ${styles[mode_].circleBgColor}`
         })
+
+        document.querySelector(".quick_start").style.cssText = `background-color: ${styles[mode_].blockColor}`
         
     }
 
